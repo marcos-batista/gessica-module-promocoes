@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.agroall.gessica.controllers.DataCollectionResourceControllerImpl;
 import com.agroall.gessica.promocoes.dataobjects.Promocao;
-import com.agroall.gessica.promocoes.services.OrdemVendaService;
+import com.agroall.gessica.promocoes.services.PromocaoService;
 import com.agroall.gessica.services.Service;
 
 @RestController
-@RequestMapping("/ordensvenda")
-public class OrdemVendaCollectionResource extends DataCollectionResourceControllerImpl<Promocao> {
+@RequestMapping("/promocoes")
+public class PromocaoCollectionResource extends DataCollectionResourceControllerImpl<Promocao> {
 	
-	@Autowired private OrdemVendaService service;
+	@Autowired private PromocaoService service;
 	
 	@Override
 	protected Service<Promocao> getService() {

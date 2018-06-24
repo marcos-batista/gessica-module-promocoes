@@ -9,52 +9,52 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.agroall.gessica.controllers.DataObjectResourceControllerImpl;
-import com.agroall.gessica.promocoes.dataobjects.Promocao;
-import com.agroall.gessica.promocoes.services.OrdemVendaService;
+import com.agroall.gessica.promocoes.dataobjects.NotificacaoPromocao;
+import com.agroall.gessica.promocoes.services.NotificacaoPromocaoService;
 import com.agroall.gessica.services.Service;
 
 @RestController
-@RequestMapping("/ordemvenda")
+@RequestMapping("/notificacao")
 @CrossOrigin
-public class OrdemVendaResource extends DataObjectResourceControllerImpl<Promocao> {
+public class NotificacaoPromocaoDataResource extends DataObjectResourceControllerImpl<NotificacaoPromocao> {
 	
-	@Autowired private OrdemVendaService service;
+	@Autowired private NotificacaoPromocaoService service;
 	
 	@Override
-	protected Service<Promocao> getService() {
-		return this.service;
+	protected Service<NotificacaoPromocao> getService() {
+		return this.service;	
 	}
 	
 	@Override
 	@RequestMapping(method = RequestMethod.GET)
-	public Promocao doGet() {
+	public NotificacaoPromocao doGet() {
 		return super.doGet();
 	}
 	
 	@Override
 	@RequestMapping(method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-	public Promocao doPost(@RequestBody Promocao ordemVenda) {
-		ordemVenda.setId(null);
-		return super.doPost(ordemVenda);
+	public NotificacaoPromocao doPost(@RequestBody NotificacaoPromocao notificacaoPromocao) {
+		notificacaoPromocao.setId(null);
+		return super.doPost(notificacaoPromocao);
 	}
 	
 	@Override
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public Promocao doGet(@PathVariable(value = "id") String id) {
+	public NotificacaoPromocao doGet(@PathVariable(value = "id") String id) {
 		return super.doGet(id);
 	}
 	
 	@Override
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
-	public Promocao doPut(@PathVariable(value = "id") String id, Promocao ordemVenda) {
-		ordemVenda.setId(id);
-		return super.doPut(id, ordemVenda);
+	public NotificacaoPromocao doPut(@PathVariable(value = "id") String id, @RequestBody NotificacaoPromocao notificacaoPromocao) {
+		notificacaoPromocao.setId(id);
+		return super.doPut(id, notificacaoPromocao);
 	}
 	
 	@Override
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, consumes = "application/json", produces = "application/json")
-	public Promocao doDelete(Promocao ordemVenda) {
-		return super.doDelete(ordemVenda);
+	public NotificacaoPromocao doDelete(NotificacaoPromocao notificacaoPromocao) {
+		return super.doDelete(notificacaoPromocao);
 	}
 	
 }

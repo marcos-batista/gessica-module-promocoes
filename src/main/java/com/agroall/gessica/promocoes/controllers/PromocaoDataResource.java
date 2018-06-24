@@ -9,52 +9,52 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.agroall.gessica.controllers.DataObjectResourceControllerImpl;
-import com.agroall.gessica.promocoes.dataobjects.Cliente;
-import com.agroall.gessica.promocoes.services.ClienteService;
+import com.agroall.gessica.promocoes.dataobjects.Promocao;
+import com.agroall.gessica.promocoes.services.PromocaoService;
 import com.agroall.gessica.services.Service;
 
 @RestController
-@RequestMapping("/cliente")
+@RequestMapping("/promocao")
 @CrossOrigin
-public class ClienteResource extends DataObjectResourceControllerImpl<Cliente> {
+public class PromocaoDataResource extends DataObjectResourceControllerImpl<Promocao> {
 	
-	@Autowired private ClienteService service;
+	@Autowired private PromocaoService service;
 	
 	@Override
-	protected Service<Cliente> getService() {
+	protected Service<Promocao> getService() {
 		return this.service;	
 	}
 	
 	@Override
 	@RequestMapping(method = RequestMethod.GET)
-	public Cliente doGet() {
+	public Promocao doGet() {
 		return super.doGet();
 	}
 	
 	@Override
 	@RequestMapping(method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-	public Cliente doPost(@RequestBody Cliente cliente) {
-//		cliente.setId(null);
-		return super.doPost(cliente);
+	public Promocao doPost(@RequestBody Promocao promocao) {
+		promocao.setId(null);
+		return super.doPost(promocao);
 	}
 	
 	@Override
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public Cliente doGet(@PathVariable(value = "id") String id) {
+	public Promocao doGet(@PathVariable(value = "id") String id) {
 		return super.doGet(id);
 	}
 	
 	@Override
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
-	public Cliente doPut(@PathVariable(value = "id") String id, @RequestBody Cliente cliente) {
-//		cliente.setId(id);
-		return super.doPut(id, cliente);
+	public Promocao doPut(@PathVariable(value = "id") String id, @RequestBody Promocao promocao) {
+		promocao.setId(id);
+		return super.doPut(id, promocao);
 	}
 	
 	@Override
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, consumes = "application/json", produces = "application/json")
-	public Cliente doDelete(Cliente cliente) {
-		return super.doDelete(cliente);
+	public Promocao doDelete(Promocao promocao) {
+		return super.doDelete(promocao);
 	}
 	
 }

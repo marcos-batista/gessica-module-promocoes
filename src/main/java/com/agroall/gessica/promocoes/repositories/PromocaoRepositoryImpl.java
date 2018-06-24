@@ -8,39 +8,39 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 
 import com.agroall.gessica.repositories.Repository;
 
-public class OrdemVendaRepositoryImpl implements Repository {
+public class PromocaoRepositoryImpl implements Repository {
 	
 	@Autowired private MongoTemplate mongo;
 	
 	@Override
-	public <OrdemVenda> OrdemVenda insert_(OrdemVenda cliente) {
-		mongo.insert(cliente);
-		return cliente;
+	public <Promocao> Promocao insert_(Promocao promocao) {
+		mongo.insert(promocao);
+		return promocao;
 	}
 	
 	@Override
-	public <OrdemVenda> OrdemVenda update_(OrdemVenda cliente) {
-		mongo.save(cliente);
-		return cliente;
+	public <Promocao> Promocao update_(Promocao promocao) {
+		mongo.save(promocao);
+		return promocao;
 	}
 	
 	@Override
-	public <OrdemVenda> void delete_(OrdemVenda cliente) {
-		mongo.remove(cliente);
-	}
-
-	@Override
-	@SuppressWarnings({"unchecked"})
-	public <OrdemVenda> OrdemVenda findById_(Object id) {
-		com.agroall.gessica.promocoes.dataobjects.Promocao result = mongo.findById(id, com.agroall.gessica.promocoes.dataobjects.Promocao.class);
-		return (OrdemVenda) result;
+	public <Promocao> void delete_(Promocao promocao) {
+		mongo.remove(promocao);
 	}
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public <OrdemVenda> Collection<OrdemVenda> listAll_() {
+	public <Promocao> Promocao findById_(Object id) {
+		com.agroall.gessica.promocoes.dataobjects.Promocao result = mongo.findById(id, com.agroall.gessica.promocoes.dataobjects.Promocao.class);
+		return (Promocao) result;
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public <Promocao> Collection<Promocao> listAll_() {
 		List<com.agroall.gessica.promocoes.dataobjects.Promocao> result = mongo.findAll(com.agroall.gessica.promocoes.dataobjects.Promocao.class);
-		return (Collection<OrdemVenda>) result;
+		return (Collection<Promocao>) result;
 	}
 
 }

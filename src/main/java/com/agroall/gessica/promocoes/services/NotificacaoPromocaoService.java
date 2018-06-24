@@ -3,19 +3,19 @@ package com.agroall.gessica.promocoes.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.agroall.gessica.promocoes.dataobjects.Cliente;
-import com.agroall.gessica.promocoes.repositories.ClienteRepository;
+import com.agroall.gessica.promocoes.dataobjects.NotificacaoPromocao;
+import com.agroall.gessica.promocoes.repositories.NotificacaoPromocaoRepository;
 import com.agroall.gessica.repositories.Repository;
 import com.agroall.gessica.services.ServiceImpl;
 
 @Service
-public class ClienteService extends ServiceImpl<Cliente> {
+public class NotificacaoPromocaoService extends ServiceImpl<NotificacaoPromocao> {
 	
-	@Autowired private ClienteRepository repository;
+	@Autowired private NotificacaoPromocaoRepository repository;
 	
 	@Override
-	public Cliente factoryNewDataObject() {
-		return new Cliente();
+	public NotificacaoPromocao factoryNewDataObject() {
+		return new NotificacaoPromocao();
 	}
 	
 	@Override
