@@ -14,8 +14,8 @@ import com.agroall.gessica.promocoes.services.NotificacaoPromocaoService;
 import com.agroall.gessica.services.Service;
 
 @RestController
-@RequestMapping("/notificacao")
 @CrossOrigin
+@RequestMapping("/notificacao")
 public class NotificacaoPromocaoDataResource extends DataObjectResourceControllerImpl<NotificacaoPromocao> {
 	
 	@Autowired private NotificacaoPromocaoService service;
